@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Dead Protocol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+        }
+        button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔗 URL Fetcher Challenge</h1>
+    <p>Enter a URL to fetch its content.</p>
+    <p><em>Hint1: There is not only http|https protocols</em></p>
+    <p><em>Hint2: Backend running on port 5000 in admin service</em></p>
+    
+    <form method="POST" action="/">
+        <label for="url">URL:</label><br><br>
+        <input type="text" id="url" name="url" size="80" placeholder="e.g., http://example.com/data">
+        <button type="submit">Fetch</button>
+    </form>
+
+    {% if fetched_content %}
+    <h2>--- FETCH RESULT ---</h2>
+    <div style="border: 1px solid #ccc; padding: 10px; background: #f9f9f9;">
+        {{ fetched_content | safe }}
+    </div>
+    {% endif %}
+</body>
+</html>

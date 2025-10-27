@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: ctf_frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - admin
+    restart: always
+
+  admin:
+    build: ./admin-api
+    container_name: ctf_admin
+    restart: always
